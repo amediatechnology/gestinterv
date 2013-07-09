@@ -1,0 +1,248 @@
+/*
+Credit: http://www.templatemo.com
+*/
+
+body {
+	margin: 0;
+	padding: 0;
+	color: #686d73;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	line-height: 1.5em; 
+	background-color: #172b43;
+	background-image: url(images/templatemo_body.jpg);
+	background-position: top;
+	background-repeat: repeat-x
+}
+
+hr {
+border: 0;
+    height: 1px;
+    background: #333;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,hsla(0,0%,0%,0)), color-stop(50%,hsla(0,0%,0%,.75)), color-stop(100%,hsla(0,0%,0%,0)));
+    background: -webkit-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:    -moz-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:     -ms-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:      -o-linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+    background:         linear-gradient(left, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,.75) 50%, hsla(0,0%,0%,0) 100%);
+}
+
+hr.oval {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    overflow: hidden;
+    
+    margin: 0px auto;
+    border: 0;
+
+}
+
+hr.oval:before {
+    content: '';
+    width: 90%;
+    height: 30px;
+    left: 5%;
+    position: absolute;
+    z-index: 50;
+ 
+    border-bottom-left-radius: 1000px 70px;
+    border-bottom-right-radius: 1000px 70px;
+    
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, .35);
+}
+
+hr.oval:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    z-index: 100;
+    
+    border-bottom-left-radius: 1000px 70px;
+    border-bottom-right-radius: 1000px 70px;
+    
+    background: #fff;
+} 
+
+a, a:link, a:visited { 
+	color: #061c34; 
+	font-weight: 400; 
+	text-decoration: underline; 
+}
+
+a:hover { 
+	text-decoration: none; 
+}
+
+p { 
+	margin: 0 0 0 0; 
+	padding: 0; 
+}
+
+em { 
+	color: #1c80ed; 
+	font-weight: 400; 
+}
+
+h1, h2, h3, h4, h5, h6 { color: #ff9c00; font-weight: normal;  }
+h1 { font-size: 34px; margin: 0 0 20px; padding: 5px 0 }
+h2 { font-size: 28px; margin: 0 0 20px; padding: 5px 0 }
+h3 { font-size: 20px; margin: 0 0 15px; padding: 0; }
+h4 { font-size: 18px; margin: 0 0 15px; padding: 0; }
+h5 { font-size: 16px; margin: 0 0 10px; padding: 0;  }
+h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
+
+
+.h30 { height: 20px }
+
+
+#templatemo_wrapper {
+	width: 95%;
+	margin: 0 auto;
+	background: url(images/templatemo_body.jpg) center top no-repeat
+}
+
+#templatmeo_header {
+	width: 1064px;
+	height: 80px;
+	background: url(images/templatemo_header.jpg) no-repeat top center
+}
+
+#site_title { 
+	float: left; 
+}
+
+#site_title h1 { 
+	margin: 0; 
+	padding: 0; 
+}
+
+#site_title h1 a { 
+	display: block; 
+	width: 212px; 
+	height: 49px; 
+	margin: 20px 0 0; 
+	color: #fff; 
+	font-size: 40px; 
+	font-weight: 400; 
+	outline: none; 
+	text-indent: -10000px; 
+}
+
+#twitter {
+	clear: both;
+	width: 1064px;
+	margin: 0 auto;
+	height: 20px;
+	padding: 10px 0;
+	color: #fff;
+	font-size:14px;
+	background: url(images/twitter.png) center right no-repeat;
+}
+
+#templatemo_menu { 
+	clear: both; 
+	width: 1110px;
+	margin: 0 auto;	
+	height: 70px; 
+	background: #0e4981; 
+	margin-bottom: 10px; 
+}
+
+#templatemo_menu ul { 
+	padding: 0 0 0 20px; 
+	margin: 0; 
+	list-style: none; 
+}
+
+#templatemo_menu ul li { 
+	margin: 0; 
+	padding: 0; 
+}
+
+#templatemo_menu ul li a {
+	float: left;
+	position: relative;
+	display: block;
+	padding-top: 45px;
+	width: 140px;
+	height: 25px;
+	margin-right: 15px;
+	font-size: 12px;
+	color: #fff;	
+	text-align: center;
+	text-decoration: none;
+	font-weight: 400;
+	background: url(images/templatemo_menu_bg.png) no-repeat;
+	outline: none;
+}
+
+#templatemo_menu ul li span.home { 
+	position: absolute; 
+	background: url(images/home.png) no-repeat; 
+	top: 15px; 
+	left: 58px; 
+	width: 26px; 
+	height: 25px; 
+}
+
+#templatemo_menu ul li span.aboutus { 
+	position: absolute; 
+	background: url(images/aboutus.png) no-repeat; 
+	top: 15px; 
+	left: 58px; 
+	width: 26px; 
+	height: 25px; 
+}
+
+#templatemo_menu ul li span.news { 
+	position: absolute; 
+	background: url(images/service.png) no-repeat; 
+	top: 15px; 
+	left: 58px; 
+	width: 26px; 
+	height: 25px; 
+}
+
+#templatemo_menu ul li span.portfolio { 
+	position: absolute; 
+	background: url(images/portfolio.png) no-repeat; 
+	top: 10px; 
+	left: 58px; 
+	width: 26px; 
+	height: 25px; 
+}
+
+#templatemo_menu ul li a:hover, #templatemo_menu ul .current {
+	color: #a6d1f7;
+}
+
+#templatemo_main {
+	clear: both;
+	width: 1200px;
+	max-width: 90%;
+	margin: 0 auto;
+}
+
+.content_box {
+	clear: both;
+	padding: 20px 20px 5px 20px;
+	background: #fff  bottom center no-repeat;
+	background-position:bottom right;
+	background-size: 125px 100px;
+}
+
+#templatemo_footer {
+	clear: both;
+	width: 1064px;
+	padding: 0 20px 30px;
+	text-align: center;
+	background: url(images/templatemo_footer.jpg) center top no-repeat
+}
+
+#templatemo_footer a {
+	color: #fff;
+}
