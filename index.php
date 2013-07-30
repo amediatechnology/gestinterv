@@ -14,6 +14,18 @@ if (empty($_GET["p"])) { header("Location: index.php?p=index"); }
 	<title>Gestion des fiches d'intervention - MIS Informatique</title>
 	<link href="style.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="scripts/calendar.js"></script>
+	
+	<script type="text/javascript"> <!-- Spoiler -->
+	function showSpoiler(obj)
+	{
+	var inner = obj.parentNode.getElementsByTagName("div")[0];
+	if (inner.style.display == "none")
+	inner.style.display = "";
+	else
+	inner.style.display = "none";
+	}
+	</script>
+	
 </head>
 
 <body>
@@ -36,6 +48,9 @@ else if (($_GET['p'])=="modifinterv") { echo "<h1>Modification d'une interventio
 else if (($_GET['p'])=="clients") { echo "<h1>Liste des clients</h1>"; }
 else if (($_GET['p'])=="ficheclient") { echo "<h1>Fiche client</h1>"; }
 
+// Administration
+else if (($_GET['p'])=="administration") { echo "<h1>Administration générale du site</h1>"; }
+
 ?>
 
 <ul>
@@ -43,6 +58,7 @@ else if (($_GET['p'])=="ficheclient") { echo "<h1>Fiche client</h1>"; }
 	<li><a href="index.php?p=ajoutpreinterv">Ajout d'une pré-intervention</a></li>
 	<li><a href="index.php?p=showinterv">Affichage des interventions</a></li>
 	<li><a href="index.php?p=clients">Liste des clients</a></li>
+	<li><a href="index.php?p=administration">./ Administration \.</a></li>
 </ul>
 <hr />
 
@@ -52,22 +68,7 @@ else if (($_GET['p'])=="ficheclient") { echo "<h1>Fiche client</h1>"; }
 
 // Page d'accueil
 if (($_GET['p'])=="index")
-{ 
-	echo "<fieldset><legend align='center'><h4>Nous sommes aujourd'hui le <b>".date('d/m/y')."</b></h2></legend>";
-	echo "<center><table border='1' rules='all'>";	// Affichage des news
-	$sql = mysql_query ( "SELECT * FROM tnews ORDER BY id DESC;" ) or die ( mysql_error() ) ;
-
-	while ($ligne = mysql_fetch_array($sql))
-	{
-		echo "<tr>" ;
-		echo "<td align='center'>" . $ligne['dateNews']	. "</td>" ;
-		echo "<td align='center'>" . $ligne['auteur'] . "</td>" ;
-		echo "<td align='center' width='75%'>" . $ligne['news']	. "</td>" ;
-		echo "</tr>" ;
-	} 
-		echo "</table></center>";
-		echo "</fieldset>";
-}
+{ include "news/news.php"; }
 
 else if (($_GET['p'])=="recherche") { include('recherche.php'); }
 
@@ -82,6 +83,9 @@ else if (($_GET['p'])=="modifinterv") { include('intervention/modif-intervention
 // Clients
 else if (($_GET['p'])=="clients") { include('clients/affichageclients.php'); }
 else if (($_GET['p'])=="ficheclient") { include('clients/ficheclient.php'); }
+
+// Administration
+else if (($_GET['p'])=="administration") { include('admin/index.php'); }
 ?>
 
 </body>
