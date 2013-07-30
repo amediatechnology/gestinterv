@@ -1,7 +1,7 @@
 <?php
 // Identifiants BDD
 $adresseSQL = 'localhost';
-$pseudoSQL = 'julien';
+$pseudoSQL = 'root';
 $mdpSQL = '';
 $bddSQL = 'misinterventions';
 
