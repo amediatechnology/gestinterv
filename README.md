@@ -4,6 +4,7 @@
 
 Révision du code le : [30/07/2013]
 
+--------------------------------------
 
 30/07/2013 - | VERSION 2.0 |
 ````````````````````````````````````````
@@ -20,13 +21,18 @@ Révision du code le : [30/07/2013]
  - Kit graphique libre en étude / conception.
 ````````````````````````````````````````
 
+--------------------------------------
+
 06/03/2013 - | VERSION 1.2 |
 ````````````````````````````````````````
  * -- Nouvelle partie -- "Pré-interventions"
  |---> Création d'une fiche pour préparer la future intervention.
 ````````````````````````````````````````
- 
+
+--------------------------------------
+
 15/02/2013 - | VERSION 1.1 |
+
 [Partie ADMINISTRATION]
 ````````````````````````````````````````
  * Refonte totale de la page "Administration"
@@ -34,6 +40,7 @@ Révision du code le : [30/07/2013]
      * Type interv - technicien - matériel - logiciels
      * Ajout catégorie "Logiciels" à installer / ou mettre à jour
 ````````````````````````````````````````
+
 [Partie CLIENTS]
 ````````````````````````````````````````
  * MàJ page "ajout" + "modification" client (traitement + redirection)
@@ -64,12 +71,16 @@ Révision du code le : [30/07/2013]
  * Ajout commentaires dans fichiers pour une meilleure compréhension
 ````````````````````````````````````````
  
+ --------------------------------------
+ 
 02/11/2012 - | VERSION 1.0.1 |
 ````````````````````````````````````````
  * Modification de la page des statistiques
  |--->	Refonte des requêtes SQL & du code d'affichage PHP 
  
 ````````````````````````````````````````
+ 
+ --------------------------------------
  
 29/10/2012 - | VERSION 1.0 |
 SORTIE INITIALE DU PROJET !
@@ -78,6 +89,8 @@ SORTIE INITIALE DU PROJET !
  |--->	Techniciens / Types d'intervention / Matériel
  * La plupart des gros bugs ont été corrigés 
 ````````````````````````````````````````
+
+--------------------------------------
 
 29/09/2012 - | VERSION BETA |
 ````````````````````````````````````````
