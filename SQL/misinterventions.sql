@@ -42,6 +42,26 @@ CREATE TABLE IF NOT EXISTS `tclients` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `tpreinterv`
+--
+
+CREATE TABLE IF NOT EXISTS `tpreinterv` (
+  `codePreInterv` int(11) NOT NULL AUTO_INCREMENT,
+  `codeClient` int(11) NOT NULL,
+  `dateDepot` char(10) CHARACTER SET latin1 DEFAULT NULL,
+  `dateRestitution` char(10) CHARACTER SET latin1 DEFAULT NULL,
+  `materiel` char(25) CHARACTER SET latin1 DEFAULT NULL,
+  `typeInterv` char(50) CHARACTER SET latin1 DEFAULT NULL,
+  `observations` text CHARACTER SET latin1,
+  `password` char(20) CHARACTER SET latin1 DEFAULT NULL,
+  `dossierMesDocs` char(50) CHARACTER SET latin1 DEFAULT NULL,
+  `dossierClt` char(50) CHARACTER SET latin1 DEFAULT NULL,
+  PRIMARY KEY (`codePreInterv`),
+  KEY `codeClient` (`codeClient`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
+
+
+--
 -- Structure de la table `tinterventions`
 --
 -- Création: Sam 09 Février 2013 à 09:37
@@ -51,22 +71,24 @@ DROP TABLE IF EXISTS `tinterventions`;
 CREATE TABLE IF NOT EXISTS `tinterventions` (
   `codeIntervention` int(11) NOT NULL AUTO_INCREMENT,
   `codeClient` int(11) NOT NULL,
-  `dateInterv` char(10) CHARACTER SET latin1 DEFAULT NULL,
-  `antivirus` int(11) NOT NULL,
-  `malwares` int(11) NOT NULL,
-  `spybot` int(11) NOT NULL,
-  `logiciels` varchar(150) COLLATE latin1_general_ci NOT NULL,
-  `maj` varchar(150) COLLATE latin1_general_ci NOT NULL,
-  `virus` varchar(150) COLLATE latin1_general_ci NOT NULL,
-  `reinstall` varchar(150) COLLATE latin1_general_ci NOT NULL,
-  `ram` varchar(50) COLLATE latin1_general_ci NOT NULL,
-  `intervention` char(50) CHARACTER SET latin1 NOT NULL,
-  `materiel` char(50) CHARACTER SET latin1 NOT NULL,
-  `observations` char(200) CHARACTER SET latin1 NOT NULL,
-  `technicien` char(50) CHARACTER SET latin1 NOT NULL,
-  `prix` char(10) CHARACTER SET latin1 NOT NULL,
+  `codePreInterv` int(11) NOT NULL,
+  `dateInterv` char(10) COLLATE latin1_general_ci DEFAULT NULL,
+  `antivirus` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `malwares` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `spybot` varchar(15) COLLATE latin1_general_ci NOT NULL,
+  `logiciels` varchar(200) COLLATE latin1_general_ci NOT NULL,
+  `maj` varchar(200) COLLATE latin1_general_ci NOT NULL,
+  `virus` varchar(200) COLLATE latin1_general_ci NOT NULL,
+  `reinstall` varchar(200) COLLATE latin1_general_ci NOT NULL,
+  `ram` varchar(100) COLLATE latin1_general_ci NOT NULL,
+  `intervention` char(50) COLLATE latin1_general_ci NOT NULL,
+  `materiel` char(50) COLLATE latin1_general_ci NOT NULL,
+  `observations` char(200) COLLATE latin1_general_ci NOT NULL,
+  `technicien` char(50) COLLATE latin1_general_ci NOT NULL,
+  `prix` char(15) COLLATE latin1_general_ci NOT NULL,
   PRIMARY KEY (`codeIntervention`),
-  KEY `codeClient` (`codeClient`)
+  KEY `codeClient` (`codeClient`),
+  KEY `codePreInterv` (`codePreInterv`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
@@ -98,8 +120,10 @@ INSERT INTO `tlogiciels` (`id`, `nom`) VALUES
 (3, 'Sumatra PDF'),
 (4, 'Nero 7'),
 (5, 'VLC'),
-(6, 'Open Office'),
-(7, 'Pack Microsoft Office');
+(6, 'Open Office 4'),
+(7, 'Pack Microsoft Office 2003'),
+(8, 'Pack Microsoft Office 2007'),
+(9, 'Classic Shell');
 
 -- --------------------------------------------------------
 
@@ -123,19 +147,10 @@ CREATE TABLE IF NOT EXISTS `ttechniciens` (
 INSERT INTO `ttechniciens` (`id`, `nom`) VALUES
 (1, 'GILLES'),
 (2, 'NICOLAS'),
-(3, 'SOLENE'),
-(4, 'JULIEN'),
-(5, 'ISABELLE'),
-(6, 'GILLES ET NICOLAS'),
-(7, 'GILLES ET SOLENE'),
-(8, 'GILLES ET JULIEN'),
-(9, 'GILLES ET ISABELLE'),
-(10, 'NICOLAS ET SOLENE'),
-(11, 'NICOLAS ET JULIEN'),
-(12, 'NICOLAS ET ISABELLE'),
-(13, 'SOLENE ET JULIEN'),
-(14, 'SOLENE ET ISABELLE'),
-(15, 'ISABELLE ET JULIEN');
+(3, 'JULIEN'),
+(4, 'GILLES ET NICOLAS'),
+(5, 'GILLES ET JULIEN'),
+(6, 'NICOLAS ET JULIEN');
 
 -- --------------------------------------------------------
 
@@ -212,3 +227,16 @@ INSERT INTO `ttypemateriel` (`id`, `materiel`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+--
+-- Structure de la table `tnews`
+--
+
+CREATE TABLE IF NOT EXISTS `tnews` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `news` text COLLATE latin1_general_ci NOT NULL,
+  `dateNews` char(15) CHARACTER SET latin1 NOT NULL,
+  `auteur` char(20) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=1 ;
