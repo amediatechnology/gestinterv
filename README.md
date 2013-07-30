@@ -3,9 +3,10 @@
 --------------------------------------
 
 Révision du code le : [30/07/2013]
-````````````````````````````````````````
+
 
 30/07/2013 - | VERSION 2.0 |
+````````````````````````````````````````
  * *** ! Refonte intégrale du site / système ! ***
  |---> Reprise des parties fonctionnelles (clients, interventions, pre-interventions, administration pour avoir un code exécutable.
  Certaines parties ne sont pas encore optimisées, mais cela ne saurait tarder.
@@ -17,31 +18,34 @@ Révision du code le : [30/07/2013]
  - Optimisation du code ;
  - Mise en place / Etude de programmes et fonctions en JQuery pour plus de dynamisme ;
  - Kit graphique libre en étude / conception.
-
 ````````````````````````````````````````
 
 06/03/2013 - | VERSION 1.2 |
+````````````````````````````````````````
  * -- Nouvelle partie -- "Pré-interventions"
  |---> Création d'une fiche pour préparer la future intervention.
-
 ````````````````````````````````````````
  
 15/02/2013 - | VERSION 1.1 |
 [Partie ADMINISTRATION]
+````````````````````````````````````````
  * Refonte totale de la page "Administration"
  |--->	Ajout d'iframes pour un affichage des 4 pages* d'admin'
      * Type interv - technicien - matériel - logiciels
      * Ajout catégorie "Logiciels" à installer / ou mettre à jour
-
+````````````````````````````````````````
 [Partie CLIENTS]
+````````````````````````````````````````
  * MàJ page "ajout" + "modification" client (traitement + redirection)
  * MàJ page formulaire d'ajout client & modification client
  * MàJ page affichage de la liste des clients
  |--->	Suppression alphabet (en attente)
 	Troncature liste clients (Affichage des 25 derniers ajoutés)		
 	Recherche client : ajout recherche sur telFixe & telPortable
+````````````````````````````````````````
 
 [Partie INTERVENTIONS]
+````````````````````````````````````````
  * MàJ formulaire ajout & formulaire modification d'une intervention
  |---> Ajout des parties manquantes (observations, détails install, date du jour, logiciels à installer / mettre à jour...)
  * Création page "add.php" : Ajouter une intervention
@@ -50,15 +54,18 @@ Révision du code le : [30/07/2013]
 ````````````````````````````````````````
 
 [Partie STATISTIQUES]
+````````````````````````````````````````
  * MàJ page (Correction SQL + Ajout stats Solène)
+ ````````````````````````````````````````
 
 [DIVERS]
+````````````````````````````````````````
  * MàJ code SQL (nombreuses erreurs de syntaxe...)
  * Ajout commentaires dans fichiers pour une meilleure compréhension
-
 ````````````````````````````````````````
  
 02/11/2012 - | VERSION 1.0.1 |
+````````````````````````````````````````
  * Modification de la page des statistiques
  |--->	Refonte des requêtes SQL & du code d'affichage PHP 
  
@@ -66,14 +73,17 @@ Révision du code le : [30/07/2013]
  
 29/10/2012 - | VERSION 1.0 |
 SORTIE INITIALE DU PROJET !
+````````````````````````````````````````
  * Ajout terminé des pages administration
  |--->	Techniciens / Types d'intervention / Matériel
  * La plupart des gros bugs ont été corrigés 
 ````````````````````````````````````````
 
 29/09/2012 - | VERSION BETA |
+````````````````````````````````````````
  * Ajout d'un kit graphique
  * Adaptation du code PHP pour le kit
  * Adaptation du kit graphique (emplacements, blocs...)
  * Intégration des pages en un seul "index.php"
  |---> Les pages ne sont plus indépendantes les unes aux autres
+ ````````````````````````````````````````
