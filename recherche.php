@@ -20,7 +20,7 @@ Rercherche par le <b>TÉLÉPHONE FIXE</b> : <input type="text" name="tel-client"
 if ( (count($_POST) != 0) && (isset($_POST["nom-client"])) )
 {
 	$nom = htmlspecialchars($_POST["nom-client"]);
-	$recup = mysql_query("SELECT * FROM tclients WHERE nom LIKE '%$nom';") or die ( mysql_error() ) ;
+	$recup = mysql_query("SELECT * FROM tclients WHERE nom LIKE '%$nom%';") or die ( mysql_error() ) ;
 	
 	if (mysql_num_rows($recup)) 
 		{
@@ -36,8 +36,7 @@ if ( (count($_POST) != 0) && (isset($_POST["nom-client"])) )
 			echo "<td align='center'>" 		. $ligne['telPort']	. "</td>" ;
 			echo "<td align='center'>"		. $ligne['adresse']	. "</td>" ;
 			echo "<td> <form action='index.php?p=ajoutpreinterv' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."' /> <input type='submit' value='Ajout pré-interventions' /> </form></td>";
-			echo "<td> <form action='index.php?p=addinterv' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Interventions'> </form></td>";
-			echo "<td> <form action='index.php?p=modifclient' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Fiche client'> </form></td>";
+			echo "<td> <form action='index.php?p=ficheclient' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Fiche client'> </form></td>";
 			// echo "<td align='center'><form action='clients/delclient.php?id=".$ligne["codeClient"]."' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Suppression' onclick=\"javascript:return(confirm('Confirmer la suppression ?'))\";> </form></td>" ;
 			echo "</tr>" ;
 		}
@@ -48,7 +47,7 @@ if ( (count($_POST) != 0) && (isset($_POST["nom-client"])) )
 else if ( (count($_POST) != 0) && (isset($_POST["tel-client"])) )
 {
 	$tel_client = htmlspecialchars($_POST["tel-client"]);
-	$recup = mysql_query("SELECT * FROM tclients WHERE telFixe LIKE '%$tel_client' OR telPort LIKE '%$tel_client' ;") or die ( mysql_error() ) ;
+	$recup = mysql_query("SELECT * FROM tclients WHERE telFixe LIKE '%$tel_client%' OR telPort LIKE '%$tel_client%' ;") or die ( mysql_error() ) ;
 	if (mysql_num_rows($recup)) 
 		{
 ?>
@@ -63,8 +62,7 @@ else if ( (count($_POST) != 0) && (isset($_POST["tel-client"])) )
 			echo "<td align='center'>" 		. $ligne['telPort']	. "</td>" ;
 			echo "<td align='center'>"		. $ligne['adresse']	. "</td>" ;
 			echo "<td> <form action='index.php?p=ajoutpreinterv' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Ajout pré-interventions'> </form></td>";
-			echo "<td> <form action='index.php?p=addinterv' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Interventions'> </form></td>";
-			echo "<td> <form action='index.php?p=modifclient' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Fiche client'> </form></td>";
+			echo "<td> <form action='index.php?p=ficheclient' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Fiche client'> </form></td>";
 			// echo "<td align='center'><form action='clients/delclient.php?id=".$ligne["codeClient"]."' method='post'> <input type='hidden' name='id' value='".$ligne["codeClient"]."'> <input type='submit' value='Suppression' onclick=\"javascript:return(confirm('Confirmer la suppression ?'))\";> </form></td>" ;
 			echo "</tr>" ;
 		}

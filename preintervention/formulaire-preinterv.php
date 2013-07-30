@@ -1,12 +1,13 @@
 ﻿<?php
-if ( (empty($_POST)) or (mysql_num_rows($recherche) <= 0) ) { // Si les POST sont vides (donc, si aucun nom ou n° de téléphone a été saisi, on affiche le formulaire vide ?>
+if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysql_num_rows($recherche) <= 0)  )
+{ // Si les POST sont vides (donc, si aucun nom ou n° de téléphone a été saisi, on affiche le formulaire vide ?>
 
 <form action="preintervention/ajout-preinterv.php" method="POST">
 
 <fieldset style="width:600px; text-align:justify;"><legend><h3>Coordonnés client</h3></legend>
-	<b>NOM</b> : <input name="nom" type="text" required value="<?php if (isset($nom_client)) { echo $nom_client; } ?>" /><br />
-	<b>Tél fixe</b> : <input type="text" name="telFixe" value="<?php if (isset($tel_client)) { echo $tel_client; } ?>" /> - Tél portable : <input type="text" name="telPort" /><br />
-	Adresse : <input type="text" name="adresse" size="55" />
+	<b>NOM</b> : <input name="nom" type="text" required value="<?php if (isset($nom_client)) { echo $nom_client; } else if (isset($ligne)) { echo $ligne['nom']; } ?>" /> - PRÉNOM : <input name="prenom" type="text" required value="<?php if (isset($prenom_client)) { echo $prenom_client; } else if (isset($ligne)) { echo $ligne['prenom']; }?>" /><br />
+	<b>Tél fixe</b> : <input type="text" name="telFixe" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telFixe']; } ?>" /> - Tél portable : <input type="text" name="telPort" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telPort']; } ?>" /><br />
+	Adresse : <input type="text" name="adresse" size="55" value="<?php if (isset($ligne)) { echo $ligne['adresse']; } ?>" />
 </fieldset>
 <br />
 

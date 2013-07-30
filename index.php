@@ -31,12 +31,18 @@ else if (($_GET['p'])=="ajoutpreinterv") { echo "<h1>Ajout d'une pré-interventi
 else if (($_GET['p'])=="showinterv") { echo "<h1>Affichage des interventions</h1>"; }
 else if (($_GET['p'])=="interv-preinterv") { echo "<h1>Transformation d'une <em>pré-intervention</em> en <u>intervention</u></h1>"; }
 else if (($_GET['p'])=="modifinterv") { echo "<h1>Modification d'une intervention</h1>"; }
+
+// Clients
+else if (($_GET['p'])=="clients") { echo "<h1>Liste des clients</h1>"; }
+else if (($_GET['p'])=="ficheclient") { echo "<h1>Fiche client</h1>"; }
+
 ?>
 
 <ul>
 	<li><a href="index.php?p=index">Accueil</a></li>
-	<li><a href="index.php?p=ajoutpreinterv">Ajout pré-intervention</a></li>
+	<li><a href="index.php?p=ajoutpreinterv">Ajout d'une pré-intervention</a></li>
 	<li><a href="index.php?p=showinterv">Affichage des interventions</a></li>
+	<li><a href="index.php?p=clients">Liste des clients</a></li>
 </ul>
 <hr />
 
@@ -72,6 +78,10 @@ else if (($_GET['p'])=="ajoutpreinterv") { include('preintervention/index.php');
 else if (($_GET['p'])=="showinterv") { include('intervention/affichageinterv.php'); }
 else if (($_GET['p'])=="interv-preinterv") { include('intervention/transfo-preinterv-interv.php'); }
 else if (($_GET['p'])=="modifinterv") { include('intervention/modif-intervention.php'); }
+
+// Clients
+else if (($_GET['p'])=="clients") { include('clients/affichageclients.php'); }
+else if (($_GET['p'])=="ficheclient") { include('clients/ficheclient.php'); }
 ?>
 
 </body>
