@@ -67,7 +67,7 @@
 			<option value="SO-DIMM">SO-DIMM</option>
 		</select></label>
 		<br />
-	<input type="checkbox" name="ram[]" value="RAM déjà installée dans le PC - Voir accord client"> <b>RAM déjà installée dans le PC</b> - <u>Voir pour accord / acceptation client.</u><br />
+	<label><input type="checkbox" name="ram[]" value="RAM déjà installée dans le PC - Voir accord client"> <b>RAM déjà installée dans le PC</b> - <u>Voir pour accord / acceptation client.</u></label><br />
 	</fieldset>
 	<br /><hr /><br />
 	<!--Type d'intervention-->

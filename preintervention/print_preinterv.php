@@ -28,7 +28,7 @@ $id = $_POST["id"]; // Récupération de la dernière fiche de pré-intervention
 <h3><u>Fiche matériel</u></h3>
 <hr />
 <?php
-		echo "Date de <b>dépôt</b> : " . $ligne['dateDepot'] . " ----> Date de <b>restitution prévue le</b> : <font size='7'><b>" . $ligne['dateRestitution'] . "</b></font> <br />";
+		echo "Date de <b>dépôt du matériel</b> : " . $ligne['dateDepot'] . " ----> Date de <b>restitution prévue le</b> : <font size='7'><b>" . $ligne['dateRestitution'] . "</b></font> <br />";
 		echo "<br />";	
 		echo "<b>Matériel</b> concerné : <b><font size='5'>" . $ligne['materiel'] . "</font/></b><br />" ;		
 		echo "<b>Intervention</b> à effectuer : <b><font size='5'>" . $ligne['typeInterv'] . "</font></b><br />" ;

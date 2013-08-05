@@ -22,7 +22,18 @@ if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysq
 	?>
 	</select>
 	<br />
+	
+	Matériel <b>incomplet</b> : <select name="accessoires">
+		<option value=""></option>
+		<option value="Pas de saccoche">Pas de saccoche</option>
+		<option value="Pas de transfo">Pas de transfo</option>
+		<option value="Pas de saccoche + transfo">Pas de saccoche + transfo</option>
+		<option value="Pas de souris">Pas de souris</option>
+	</select>
+	<br />
+	
 	<b>Mot de passe</b> de session : <input type="text" name="password"><br />
+	
 	<b>Type d'intervention</b> :
 	<select name="typeInterv">
 	<?php
@@ -33,8 +44,10 @@ if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysq
 		{ echo "<option value='" . $interv['interv'] . "'>" . $interv['interv'] . "</option>"; }
 	?>
 	</select><br />
+	
 	<b>Observations</b> :<br />
 	<textarea name="observations" cols="60" rows="8"></textarea><br /><br />
+	
 	<fieldset style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
 	<label><input type="checkbox" name="dossierMesDocs" value="Dossier Mes documents + Bureau"> Dossier <b>Mes documents</b> + <b>Bureau</b></label><br />
 	<b>Dossier(s) spécifique(s) à sauvegarder</b> : <input type="text" name="dossiersClt">

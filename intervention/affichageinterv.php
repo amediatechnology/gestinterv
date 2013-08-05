@@ -72,7 +72,6 @@
 		echo "<td align=center>" . $ligne0['prix'] 				. " €</td>" ;
 		echo "<td align=center>" . $ligne0['technicien'] 		. "</td>" ;
 		echo "<td> <form action='index.php?p=modifinterv' method='post'> <input type='hidden' name='id' value='" . $ligne0["codeIntervention"] . "'> <input type='submit' value='Modification'> </form></td>";
-
 		switch ($materiel) { // Selon le matériel qui a été sélectionné, la page ne sera pas la même.
 			case 'PC FIXE':
 			echo "<td> <form action='intervention/imprimer-intervention-pc.php' method='POST'> <input type='hidden' name='id' value='" . $ligne0['codeIntervention'] . "'> <input type='submit' value='Affichage / Impression'> </form></td>";
@@ -97,7 +96,8 @@
 			case 'AUTRES':
 			echo "<td> <form action='intervention/imprimer-intervention-peripheriques.php' method='POST'> <input type='hidden' name='id' value='" . $ligne0['codeIntervention'] . "'> <input type='submit' value='Affichage / Impression'> </form></td>";
 			break;
-		 }
+		}
+		echo "<td> <form action='index.php?p=facturation' method='POST'> <input type='hidden' name='id' value='" . $ligne0["codeIntervention"] . "'> <input type='submit' value='Facturation'> </form></td>";
 		echo "</tr>" ;
   	} 
 ?>

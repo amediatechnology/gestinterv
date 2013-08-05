@@ -8,7 +8,6 @@ $id = $_POST["id"]; // Récupération de la dernière fiche de pré-intervention
 
 while ( ($ligne = mysql_fetch_array($Resultat)) )
 	{ 
-	// echo var_dump($ligne);
 ?>
 
 <!-- <body onload="window.print()"> -->
