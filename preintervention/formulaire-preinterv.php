@@ -1,20 +1,19 @@
 ﻿<?php
-if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysql_num_rows($recherche) <= 0)  )
+if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysql_num_rows($recherche) <= 0) )
 { // Si les POST sont vides (donc, si aucun nom ou n° de téléphone a été saisi, on affiche le formulaire vide ?>
 
 <form action="preintervention/ajout-preinterv.php" method="POST">
 
 <fieldset style="width:600px; text-align:justify;"><legend><h3>Coordonnés client</h3></legend>
-	<b>NOM</b> : <input name="nom" type="text" required value="<?php if (isset($nom_client)) { echo $nom_client; } else if (isset($ligne)) { echo $ligne['nom']; } ?>" /> - PRÉNOM : <input name="prenom" type="text" required value="<?php if (isset($prenom_client)) { echo $prenom_client; } else if (isset($ligne)) { echo $ligne['prenom']; }?>" /><br />
-	<b>Tél fixe</b> : <input type="text" name="telFixe" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telFixe']; } ?>" /> - Tél portable : <input type="text" name="telPort" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telPort']; } ?>" /><br />
+	<b>NOM</b> : <input required name="nom" type="text" value="<?php if (isset($nom_client)) { echo $nom_client; } else if (isset($ligne)) { echo $ligne['nom']; } ?>" /> - PRÉNOM : <input name="prenom" type="text" value="<?php if (isset($prenom_client)) { echo $prenom_client; } else if (isset($ligne)) { echo $ligne['prenom']; }?>" /><br />
+	<b>Tél fixe</b> : <input required type="text" name="telFixe" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telFixe']; } ?>" /> - Tél portable : <input type="text" name="telPort" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telPort']; } ?>" /><br />
 	Adresse : <input type="text" name="adresse" size="55" value="<?php if (isset($ligne)) { echo $ligne['adresse']; } ?>" />
 </fieldset>
 <br />
 
 <fieldset style="width:600px; text-align:justify;"><legend><h3>Intervention à effectuer</h3></legend>
 	<b>Date de dépôt</b> du matériel <input name="dateDepot" type="text" value="<?php echo date('d/m/Y'); ?>" size="8" class="calendrier"> | <b>Date de restitution</b> prévue : <input name="dateRestitution" type="text" size="8" class="calendrier" required /><br />
-	<b>Matériel</b> :
-	<select name="materiel">
+	<b>Matériel</b> : <select name="materiel">
 	<?php
 		$materiel = mysql_query( "SELECT * FROM ttypemateriel ;" ) or die ( mysql_error() ) ; // Requête d'affichage des TYPE D'INTERVENTIONS
 		while ( $ligne = mysql_fetch_array($materiel) ) // Boucle d'affichage
@@ -22,7 +21,7 @@ if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysq
 	?>
 	</select>
 	<br />
-	
+
 	Matériel <b>incomplet</b> : <select name="accessoires">
 		<option value=""></option>
 		<option value="Pas de saccoche">Pas de saccoche</option>
