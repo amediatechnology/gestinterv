@@ -29,8 +29,7 @@ if (empty($_GET["p"])) { header("Location: index.php?p=index"); }
 </head>
 
 <body>
-<?php
-// TITRES
+<?php // TITRES
 
 switch ($_GET['p']) {
 	case 'index':
@@ -66,7 +65,7 @@ switch ($_GET['p']) {
 	}
 ?>
 
-<ul>
+<ul id="menu">
 	<li><a href="index.php?p=index">Accueil</a></li>
 	<li><a href="index.php?p=ajoutpreinterv">Ajout d'une pré-intervention</a></li>
 	<li><a href="index.php?p=showinterv">Affichage des interventions</a></li>
@@ -76,40 +75,38 @@ switch ($_GET['p']) {
 </ul>
 <hr />
 
-<?php
-
-// CONTENU
+<?php // CONTENU
 
 switch ($_GET['p']) {
 	case 'index':
-		include "news/news.php";
+		include_once('news/news.php');
 	break;
 	case 'recherche':
-		include('recherche.php');
+		include_once('recherche.php');
 	break;
 	case 'ajoutpreinterv':
-		include('preintervention/index.php');
+		include_once('preintervention/index.php');
 	break;
 	case 'showinterv':
-		include('intervention/affichageinterv.php');
+		include_once('intervention/affichageinterv.php');
 	break;
 	case 'interv-preinterv':
-		include('intervention/transfo-preinterv-interv.php');
+		include_once('intervention/transfo-preinterv-interv.php');
 	break;
 	case 'modifinterv':
-		include('intervention/modif-intervention.php');
+		include_once('intervention/modif-intervention.php');
 	break;
 	case 'clients':
-		include('clients/affichageclients.php');
+		include_once('clients/affichageclients.php');
 	break;
 	case 'ficheclient':
-		include('clients/ficheclient.php');
+		include_once('clients/ficheclient.php');
 	break;
 	case 'facturation':
-		include('facturation/index.php');
+		include_once('facturation/index.php');
 	break;
 	case 'administration':
-		include('admin/index.php');
+		include_once('admin/index.php');
 	break;
 	}
 ?>

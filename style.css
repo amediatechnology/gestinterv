@@ -40,3 +40,35 @@
 .currentDay{
     font-weight:bold;
 }
+
+/* Menu général du site */
+#menu {
+  position: fixed;
+  right: 0;
+  width: 130px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  top: 25%;
+}
+
+#menu li {
+  background: #ccc ;
+  color: #fff ;
+  border: 1px solid #000 ;
+  margin-bottom: 1px ;
+}
+
+#menu li a {
+  display: block ;
+  background: #aaa ;
+  color: #fff ;
+  text-align: center ;
+  text-decoration: none ;
+  padding: 4px 0 ;
+}
+
+#menu li a:hover, #menu li a:focus, #menu li a:active {
+  background: #000 ;
+  text-decoration: underline ;
+}
