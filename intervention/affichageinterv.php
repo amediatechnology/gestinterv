@@ -54,7 +54,20 @@
 
 <br /><hr /><br />
 
-<table border="1" rules="all"><legend><h3>Récapitulatif des <u>25 dernières <b>INTERVENTIONS</b></u></h3></legend>
+<h3>Récapitulatif des <u>25 dernières <b>INTERVENTIONS</b></u></h3>
+
+	<table border="1" rules="rows"> <tr> <th colspan="2">Code couleur</th> </tr>
+	<tr> <th width="25px">&nbsp;</th> <th>Statut</th> </tr>
+	<tr> <td style="background-color:#E03C3C;">&nbsp;</td> <td>--> À faire</td> </tr>
+	<tr> <td style="background-color:#5797DB;">&nbsp;</td> <td>--> En cours</td> </tr>
+	<tr> <td style="background-color:#87D86E;">&nbsp;</td> <td>--> Terminé - OK</td> </tr>
+	<tr> <td style="background-color:#D6D6D6;">&nbsp;</td> <td>--> En attente</td> </tr>
+	<tr> <td style="background-color:#FFF;">Blanc</td> <td>--> Inconnu</td> </tr>
+	</table>
+	
+<br />
+
+<table border="1" rules="all">
 <tr> <th> DATE </th> <th> CLIENT </th> <th> INTERVENTION </th> <th>MATERIEL</th> <th>OBSERVATIONS</th> <th>PRIX</th> <th>TECHNICIEN</th> <th colspan="3">ADMINISTRATION</th> </tr>
 <?php
 	// Tant qu'il y a des interventions & des clients à côté... :
@@ -63,14 +76,24 @@
 		$materiel = $ligne0['materiel']	;
 		
 	// Afficher une ligne du tableau HTML pour chaque enregistrement de la table 
-		echo "<tr>" ;
-		echo "<td align=center>" . $ligne0['dateInterv'] 		. "</td>" ;
-		echo "<td align=center><b>" . $ligne1['nom'] 			. "</b></td>" ;
+		
+		if ( $ligne0['statut'] == "À faire" )
+		{ echo "<tr style='background-color:#E03C3C;'>" ; }
+		else if ( $ligne0['statut'] == "En cours" )
+		{ echo "<tr style='background-color:#5797DB;'>" ; }
+		else if ( $ligne0['statut'] == "Terminé - OK" )
+		{ echo "<tr style='background-color:#87D86E;'>" ; }
+		else if ( $ligne0['statut'] == "En attente" )
+		{ echo "<tr style='background-color:#D6D6D6;'>" ; }
+		else { echo "<tr style='background-color:#FFF;'>" ; }
+		
+		echo "<td align=center>" . $ligne0['dateInterv'] . "</td>" ;
+		echo "<td align=center><b>" . $ligne1['nom'] . "</b></td>" ;
 		echo "<td align=center>" . $ligne0['intervention'] 	. "</td>" ;
-		echo "<td align=center>" . $ligne0['materiel'] 			. "</td>" ;
-		echo "<td align=center>" . $ligne0['observations']	 	. "</td>" ;
-		echo "<td align=center>" . $ligne0['prix'] 				. " €</td>" ;
-		echo "<td align=center>" . $ligne0['technicien'] 		. "</td>" ;
+		echo "<td align=center>" . $ligne0['materiel'] . "</td>" ;
+		echo "<td align=center>" . $ligne0['observations'] . "</td>" ;
+		echo "<td align=center>" . $ligne0['prix'] . " €</td>" ;
+		echo "<td align=center>" . $ligne0['technicien'] . "</td>" ;
 		echo "<td> <form action='index.php?p=modifinterv' method='post'> <input type='hidden' name='id' value='" . $ligne0["codeIntervention"] . "'> <input type='submit' value='Modification'> </form></td>";
 		switch ($materiel) { // Selon le matériel qui a été sélectionné, la page ne sera pas la même.
 			case 'PC FIXE':
@@ -97,7 +120,7 @@
 			echo "<td> <form action='intervention/imprimer-intervention-peripheriques.php' method='POST'> <input type='hidden' name='id' value='" . $ligne0['codeIntervention'] . "'> <input type='submit' value='Affichage / Impression'> </form></td>";
 			break;
 		}
-		echo "<td> <form action='index.php?p=facturation' method='POST'> <input type='hidden' name='id' value='" . $ligne0["codeIntervention"] . "'> <input type='submit' value='Facturation'> </form></td>";
+		// echo "<td> <form action='index.php?p=facturation' method='POST'> <input type='hidden' name='id' value='" . $ligne0["codeIntervention"] . "'> <input type='submit' value='Facturation'> </form></td>";	
 		echo "</tr>" ;
   	} 
 ?>

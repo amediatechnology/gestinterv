@@ -13,15 +13,15 @@ while ( ($ligne = mysql_fetch_array($Resultat)) )
 
 <!-- <body onload="window.print()"> -->
 <body>
-<center><h1>Rapport d'intervention</h1>
-<font size="5"><b><?php echo $ligne['intervention']; ?></b></font><br />
-<u>Date intervention</u> : <font size="5"><?php echo $ligne['dateInterv']; ?></font><br /></center>
-<hr />
-<fieldset><legend><h2>Observations & informations annexes :</h2></legend>
-<textarea readonly cols='50' rows='6'><?php echo $ligne['observations']; ?></textarea><br />
-<b>Technicien</b> : <font size="5"><?php echo $ligne['technicien']; ?></font><br />
-<b>Coût</b> : <font size="5"><?php echo $ligne['prix']; ?> €</font><br />
-</fieldset>
+
+	<center><h1>Rapport d'intervention</h1>
+	<font size="5"><b><?php echo $ligne['intervention']; ?></b></font><br />
+	<u>Date intervention</u> : <font size="5"><?php echo $ligne['dateInterv']; ?></font><br /></center>
+	<hr />
+	<fieldset><legend><h2>Observations & informations annexes :</h2></legend>
+	<textarea readonly cols='50' rows='6'><?php echo $ligne['observations']; ?></textarea><br />
+	<b>Coût</b> : <font size="5"><?php echo $ligne['prix']; ?> €</font><br />
+	</fieldset>
 <?php
 	} // Fin boucle
 ?>

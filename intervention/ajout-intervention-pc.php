@@ -9,26 +9,24 @@ if (isset($_POST['logiciels']) && !empty($_POST['logiciels'])) // Si les POST_Lo
 		{ $tabLogiciels[] = $logiciels; } // Remplissage d'un tableau contenant les POST_logiciels
 
 			// Tableau comprenant toutes les cases cochées - Regroupement en une seule ligne
-			$strLogiciels = (implode(", ", $tabLogiciels));
-			$strLogiciels = addslashes($strLogiciels);
-				
-			// Explosion de la chaîne de caractères
-			// $strExplode = (explode(", ",$strLogiciels));
-			// foreach ($strExplode as $logiciels) // Pour toutes les valeurs de la chaîne strExplode devenu la variable $logiciels
-			// { echo $logiciels."<br>"; } 
+			$strLogiciels = addslashes( (implode(", ", $tabLogiciels)) );
 }
 else 
 { $strLogiciels = " "; } // Aucun statut de coché
 
 // Récupération des cases cochées - MAJ
+
+
 if (isset($_POST['maj']) && !empty($_POST['maj'])) // Si les POST_Logiciels existent & ne sont pas vides
 {
 	foreach ($_POST['maj'] as $maj) // Pour tous les POST_Logiciel devenu ici la variable "$logiciels"
 		{ $tabMaj[] = $maj; }// Remplissage d'un tableau contenant les POST_logiciels
 
 			// Tableau comprenant toutes les cases cochées - Regroupement en une seule ligne
-			$strMaj = (implode(", ", $tabMaj));
-			$strMaj = addslashes($strMaj);
+			$strMaj = addslashes( (implode(", ", $tabMaj)) );
+				if ( isset($_POST["suppression-ancien-antivirus"]) )
+				{ $suppression_ancien_antivirus = $_POST["suppression-ancien-antivirus"];
+				$strMaj .=' '.$suppression_ancien_antivirus; }
 }
 else 
 { $strMaj = " "; } // Aucun statut de coché
@@ -37,15 +35,13 @@ else
 if (isset($_POST['virus']) && !empty($_POST['virus'])) // Si les POST_Logiciels existent & ne sont pas vides
 {
 	// Informations complémentaires quant à la case "Fiabilité ..."
-	$fiabilite = $_POST['fiabilite'];
-	$fiabilite = addslashes($fiabilite);
+	$fiabilite = addslashes($_POST['fiabilite']);
 	
 	foreach ($_POST['virus'] as $virus) // Pour tous les POST_Logiciel devenu ici la variable "$logiciels"
 		{ $tabVirus[] = $virus; }// Remplissage d'un tableau contenant les POST_logiciels
 
 			// Tableau comprenant toutes les cases cochées - Regroupement en une seule ligne
-			$strVirus = (implode(", ", $tabVirus));
-			$strVirus = addslashes($strVirus);
+			$strVirus = addslashes( (implode(", ", $tabVirus)) );
 			$strVirus .=' '.$fiabilite;
 }
 else 
@@ -58,9 +54,8 @@ if (isset($_POST['reinstall']) && !empty($_POST['reinstall'])) // Si les POST_Lo
 		{ $tabReinstall[] = $reinstall; }// Remplissage d'un tableau contenant les POST_logiciels
 
 			// Tableau comprenant toutes les cases cochées - Regroupement en une seule ligne
-			$strReinstall = (implode(", ", $tabReinstall));
-			$strReinstall = addslashes($strReinstall);
-}
+			$strReinstall = addslashes( (implode(", ", $tabReinstall)) );
+			}
 else 
 { $strReinstall = " "; } // Aucun statut de coché
 
@@ -71,9 +66,8 @@ if (isset($_POST['ram']) && !empty($_POST['ram'])) // Si les POST_Logiciels exis
 		{ $tabRam[] = $ram; }// Remplissage d'un tableau contenant les POST_logiciels
 
 			// Tableau comprenant toutes les cases cochées - Regroupement en une seule ligne
-			$strRam = (implode(", ", $tabRam));
-			$strRam = addslashes($strRam);
-}
+			$strRam = addslashes( (implode(", ", $tabRam)) );
+			}
 else 
 { $strRam = " "; } // Aucun statut de coché
 
@@ -82,24 +76,58 @@ $codePreInterv = $_POST["codePreInterv"];
 $codeClient = $_POST["codeClient"];
 $dateInterv = $_POST["dateInterv"];
 
+if ( isset($_POST["cookies"]) ) { $cookies = $_POST["cookies"]; } // Si la case "Cookies traçeurs" a été cochée, alors on la récupère.
+
 $antivirusexterne = $_POST["antivirus-externe"];
 	$antivirusinterne = $_POST["antivirus-interne"];
-		$antivirus = "$antivirusinterne+$antivirusexterne";
+		if ( isset($_POST["cookies"]) ) { $antivirus = "$antivirusinterne+$antivirusexterne+$cookies"; } // Si la case cookies a été cochée, une indication sera mise dans la colonne antivirus
+		else { $antivirus = "$antivirusinterne+$antivirusexterne"; }
+
+if ( isset($_POST["malwaresbytes-mode"]) ) { $malwaresbytes_mode = $_POST["malwaresbytes-mode"]; } // Si le mode malwaresbytes a été choisi, alors on le récupère.
+
 $malwaresexterne = $_POST["malwares-externe"];
 	$malwaresinterne = $_POST["malwares-interne"];
-		$malwares = "$malwaresinterne+$malwaresexterne";
-$spybot = $_POST["spybot"];
-$intervention = $_POST["intervention"];;
+		if ( isset($_POST["malwaresbytes-mode"]) ) { $malwares = "$malwaresinterne+$malwaresexterne+$malwaresbytes_mode"; } // Si le mode malwaresbytes a été choisi, alors une indication sera saisie dans la colonne
+		else { $malwares = "$malwaresinterne+$malwaresexterne"; }
+
+		
+$spybot = $_POST["spybot"]; // Récupération du nombre de spywares
+if ( isset($_POST["scan-redemarrage"]) ) // Si la case "Scan au redémarrage" a été cochée, alors on récupère le choix
+{ $scan_redemarrage = $_POST["scan-redemarrage"];
+$spybot = "$spybot+$scan_redemarrage"; } // et on ajoute l'information au nombre total de spywares détectés
+
+$intervention = $_POST["intervention"];
 $materiel = $_POST["materiel"];
-$observation = $_POST["observation"];
-	$observation = addslashes($observation);
+
+$observation = addslashes($_POST["observation"]);
+
+	if ( isset($_POST["adwcleaner"]) ) // Si la case ADW Cleaner a été cochée, alors on saisi l'information dans la case observations
+	{ $adwcleaner = $_POST["adwcleaner"]; 
+	$observation = "$observation || $adwcleaner"; }
+
+	if ( isset($_POST["ccleaner"]) ) // Si la case CCLeaner a été cochée, alors on saisi l'information dans la case observations
+	{ $ccleaner = $_POST["ccleaner"]; 
+	$observation = "$observation || $ccleaner"; }
+
+	if ( isset($_POST["nettoyage-annexe"]) ) // Si une information complémentaire quant aux nettoyages a été saisie, alors on la saisie dans la case observations
+	{ $info_nettoyage = $_POST["nettoyage-annexe"]; 
+	$observation = "$observation || $info_nettoyage"; }
+	
+	if ( isset($_POST["serveur"]) ) // Si une information complémentaire quant aux nettoyages a été saisie, alors on la saisie dans la case observations
+	{ $nom_serveur = $_POST["serveur"];
+	$sauvegarde = "Les fichiers sont sauvegardés sur le serveur ".$nom_serveur;
+	$observation = "$observation $sauvegarde"; }
+
 $technicien = $_POST["technicien"];
 $prix = $_POST["prix"];
+$statut = $_POST["statut"];
 
-$add_interv = "INSERT INTO tinterventions VALUES ('','$codeClient','$codePreInterv','$dateInterv','$antivirus','$malwares','$spybot','$strLogiciels','$strMaj','$strVirus','$strReinstall','$strRam','$intervention','$materiel','$observation','$technicien','$prix');";
+$add_interv = "INSERT INTO tinterventions VALUES ('','$codeClient','$codePreInterv','$dateInterv','$antivirus','$malwares','$spybot','$strLogiciels','$strMaj','$strVirus','$strReinstall','$strRam','$intervention','$materiel','$observation','$technicien','$prix','$statut');";
+echo $add_interv;
 
 $req = mysql_query ( $add_interv ) or die ( mysql_error() ) ;
 	// FIN - AJOUT D'UNE INTERVENTION
+	
 $codeIntervention = mysql_insert_id(); // Reprise du code de l'intervention pour la redirection
 
 // SUPPRESSION DE LA FICHE DE PRE-INTERVENTION CONCERNEE
@@ -113,26 +141,24 @@ $req = mysql_query ( $del )  or  die ( mysql_error() ) ;
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Gestion des fiches d'intervention - MIS Informatique</title>
-	<link href="../templatemo_style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body align="center">
-<div id="templatemo_main">
-    <div class="content_box">
-    <h2>Création de la fiche d'intervention n° <?php echo $codeIntervention; ?> - REUSSITE ! -</h2> <!-- TITRE -->
-		<div class="col_w340"> <!-- CONTENUS -->		
-			<br /><hr /><br />
-			<h4>Impression de la fiche</h4><br />
-			L'intervention a bien été a bien été créée !<br />
-			La fiche de pré-intervention a été <b>supprimée</b> !<br /><br />
-			<form action="imprimer-intervention-pc.php" method="post"> <input type="hidden" name="id" value="<?php echo $codeIntervention; ?>"> <input type="submit" value="IMPRIMER" style="width:250px; height:50px;font-size:14px;"></form>
+
+
+<h2>Création de la fiche d'intervention n° <?php echo $codeIntervention; ?> - REUSSITE ! -</h2> <!-- TITRE -->
+<br /><hr /><br />
+<h4>Impression de la fiche</h4><br />
+<form action="imprimer-intervention-pc.php" method="post"> <input type="hidden" name="id" value="<?php echo $codeIntervention; ?>"> <input type="submit" value="IMPRIMER" style="width:250px; height:50px;font-size:14px;"></form>
+L'intervention a bien été a bien été créée !<br />
+La fiche de pré-intervention a été <b>supprimée</b> !<br /><br />
+
+
 <hr />
 <form action ="../index.php?p=showinterv" method="post">
-			Cliquez sur le bouton ci-dessous pour être rediriger vers le récapitulatif des fiches d'intervention.<br /><br />
-			<input type="submit" name="redirection" value="Redirection vers toutes les fiches" style="width:250px; height:50px;font-size:14px;">
-			</form>
-		</div>
-    </div> <!-- end of a content box -->      
-</div> <!-- end of main -->
+	Cliquez sur le bouton ci-dessous pour être rediriger vers le récapitulatif des fiches d'intervention.<br /><br />
+	<input type="submit" name="redirection" value="Redirection vers toutes les fiches" style="width:250px; height:50px;font-size:14px;">
+</form>
+
 </body>
 </html>

@@ -26,7 +26,7 @@ $observation = $_POST["observation"];
 $technicien = $_POST["technicien"];
 $prix = $_POST["prix"];
 
-$add_interv = "INSERT INTO tinterventions VALUES ('','$codeClient','$codePreInterv','$dateInterv','$antivirus','$malwares','$spybot','$strLogiciels','$strMaj','$strVirus','$strReinstall','$strRam','$intervention','$materiel','$observation','$technicien','$prix');";
+$add_interv = "INSERT INTO tinterventions VALUES ('','$codeClient','$codePreInterv','$dateInterv','$antivirus','$malwares','$spybot','$strLogiciels','$strMaj','$strVirus','$strReinstall','$strRam','$intervention','$materiel','$observation','$technicien','$prix','$statut');";
 
 $req = mysql_query ( $add_interv ) or die ( mysql_error() ) ;
 	// FIN - AJOUT D'UNE INTERVENTION
