@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS `tinterventions` (
   `codeClient` int(11) NOT NULL,
   `codePreInterv` int(11) NOT NULL,
   `dateInterv` char(10) NULL,
-  `antivirus` varchar(15) NOT NULL,
-  `malwares` varchar(15) NOT NULL,
-  `spybot` varchar(15) NOT NULL,
+  `antivirus` varchar(55) NOT NULL,
+  `malwares` varchar(55) NOT NULL,
+  `spybot` varchar(55) NOT NULL,
   `logiciels` varchar(200) NOT NULL,
   `maj` varchar(200) NOT NULL,
   `virus` varchar(200) NOT NULL,
@@ -36,9 +36,28 @@ CREATE TABLE IF NOT EXISTS `tinterventions` (
   `observations` char(200) NOT NULL,
   `technicien` char(50) NOT NULL,
   `prix` char(15) NOT NULL,
+  `statut` varchar(30) NOT NULL,
   PRIMARY KEY (`codeIntervention`),
   KEY `codeClient` (`codeClient`),
   KEY `codePreInterv` (`codePreInterv`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+-- 
+-- Structure de la table 'tinterventions'
+-- 
+
+DROP TABLE IF EXISTS `tfacturation`;
+CREATE TABLE IF NOT EXISTS `tfacturation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `codeIntervention` int(11) NOT NULL,
+  `codeClient` int(11) NOT NULL,
+  `dateFacturation` varchar(12) NULL,
+  `observations` char(200) NOT NULL,
+  `coutHT` varchar(15) NOT NULL,
+  `coutTTC` varchar(15) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `codeIntervention` (`codeIntervention`),
+  KEY `codeClient` (`codeClient`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- 
