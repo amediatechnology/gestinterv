@@ -34,15 +34,15 @@ $id = $_POST["id"]; // Récupération de la dernière fiche de pré-intervention
 		echo "<b>Matériel</b> concerné : <b><font size='5'>" . $ligne['materiel'] . "</font/></b><br />" ;				
 		echo "<b>Intervention</b> à effectuer : <b><font size='5'>" . $ligne['typeInterv'] . "</font></b><br />" ;
 		echo "<br />";
-		echo "<b>Observations</b> annexes : <br /> <textarea readonly cols='60' rows='6'>" . $ligne['observations'] . "</textarea>  Mot de passe : <b>" . $ligne['password'] . "</b> <br /><br />" ;
+		echo "<b>Observations</b> annexes : <br /> <textarea readonly cols='50' rows='6'>" . $ligne['observations'] . "</textarea>  Mot de passe : <b>" . $ligne['password'] . "</b> <br /><br />" ;
+		echo "Sauvegarde des fichiers clients : <b>" . $ligne['dossierMesDocs'] . "</b> <br />";
 		echo "Dossiers spécifiques à sauvergarder : <b>" . $ligne['dossierClt'] . "</b> <br />" ;
-		echo "Sauvegarde complémentaire : <b>" . $ligne['dossierMesDocs'] . "</b> <br />";
   	}
 ?>
 <br /><hr />
 <center><b>Après avoir convenablement vérifié l'exactitude des informations ci-dessus, merci de signer le document pour approuver la demande d'intervention.</b></center>
 <b>Signature client</b> - Accord pour intervention
-	<table><td><table width="275px" height="100px" border="1"> <tr> <td></td> </tr> </table> </td> <td> <table rules="all"> <td> <p align="justify" style="background-color:#ebebeb; font-size:12px; padding:0 0 0 15px;">Nous déclinons toute responsabilité en cas de perte de données relative à des virus, à une mauvaise utilisation ou à un problème de disque dur défectueux. <u>Le matériel n'a pas une durée de vie illimitée</u>, <b>l'utilisateur reste le seul responsable de ses sauvegardes de fichiers</b> sur tous supports existants (disque dur externe, CD, DVD, clé USB etc...).<br />
+	<table><td><table width="275px" height="150px" border="1"> <tr> <td></td> </tr> </table> </td> <td> <table rules="all"> <td> <p align="justify" style="background-color:#ebebeb; font-size:12px; padding:5px 5px 5px 5px;">Nous déclinons toute responsabilité en cas de perte de données relative à des virus, à une mauvaise utilisation ou à un problème de disque dur défectueux. <u>Le matériel n'a pas une durée de vie illimitée</u>, <b>l'utilisateur reste le seul responsable de ses sauvegardes de fichiers</b> sur tous supports existants (disque dur externe, CD, DVD, clé USB etc...).<br />
 	En cas de formatage, <u>nous procédons à la sauvegarde des seuls documents accessibles que <b>nous remettons ensuite sur le disque dur de l'ordinateur</b></u>. Cependant, <b>il nous est impossible de garantir une restitution complète des documents</b> <u>compte-tenu des contraintes techniques</u> qui peuvent nous être imposées.</br />
 	Pour des raisons de confidentiliaté et pour éviter tout problème ultérieur, <b><u>les données utilisateurs ne seront pas conservées sur nos serveurs</b></u>.<br />
 	Les logiciels spécifiques ne peuvent pas être réinstallés <u>pour des raisons de licence</u>.</p></td></table></td></table>
