@@ -11,7 +11,7 @@ if ( !empty($_POST) ) // Si les variables "$_POST" sont vides,
 
 echo "<fieldset><legend align='center'>Nous sommes aujourd'hui le <big><b>".date('d/m/y')."</b></big></legend>";
 echo "<center><table border='1' rules='all'>";	// Affichage des news
-$sql = mysql_query ( "SELECT * FROM tnews ORDER BY dateNews DESC;" ) or die ( mysql_error() ) ;
+$sql = mysql_query ( "SELECT * FROM tnews ORDER BY id DESC;" ) or die ( mysql_error() ) ;
 
 while ($ligne = mysql_fetch_array($sql))
 {
@@ -35,7 +35,7 @@ while ($ligne = mysql_fetch_array($sql))
 	<!-- Formulaire de création de news -->
 	<fieldset><legend><h2>Ajout d'une actualité</h2></legend>
 	<form action="#" method="POST"> <!-- Le formulaire commence à ce point - Redirection dans cette même page pour ajouter une news (voir plus haut)-->
-		Date : <input name="dateNews" type="text" size="7" value="<?php echo date('d/m/Y'); ?>" class="calendrier" required /><br /> <!-- Champ de saisie OBLIGATOIRE - DATE -->
+		Date : <input name="dateNews" type="text" size="14" value="<?php echo date("d/m/Y"); ?> - <?php echo date("H:i"); ?>" required /><br /> <!-- Champ de saisie OBLIGATOIRE - DATE -->
 		News :<br /> <textarea name="news" cols="45" rows="10" required></textarea><br /> <!-- Champ de saisie OBLIGATOIRE - NEWS -->
 		Auteur : <select name="auteur"> <!-- Liste déroulante - Affichage de tous les techniciens -->
 				<?php
