@@ -26,10 +26,10 @@ CREATE TABLE IF NOT EXISTS `tinterventions` (
   `antivirus` varchar(55) NOT NULL,
   `malwares` varchar(55) NOT NULL,
   `spybot` varchar(55) NOT NULL,
-  `logiciels` varchar(200) NOT NULL,
-  `maj` varchar(200) NOT NULL,
-  `virus` varchar(200) NOT NULL,
-  `reinstall` varchar(200) NOT NULL,
+  `logiciels` varchar(300) NOT NULL,
+  `maj` varchar(300) NOT NULL,
+  `virus` varchar(300) NOT NULL,
+  `sauvegarde` varchar(300) NOT NULL,
   `ram` varchar(100) NOT NULL,
   `intervention` char(50) NOT NULL,
   `materiel` char(50) NOT NULL,
@@ -156,7 +156,7 @@ DROP TABLE IF EXISTS `tnews`;
 CREATE TABLE IF NOT EXISTS `tnews` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `news` text CHARACTER SET latin1 NOT NULL,
-  `dateNews` char(15) CHARACTER SET latin1 NOT NULL,
+  `dateNews` char(20) CHARACTER SET latin1 NOT NULL,
   `auteur` char(20) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;

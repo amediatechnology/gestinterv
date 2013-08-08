@@ -27,11 +27,14 @@ if ( (isset($_POST['verif'])) && ($_POST['verif']=='add-formulaire-nouveau-clien
 
 	if ( !empty($_POST['dossierMesDocs']) )
 	{ $dossierMesDocs = addslashes($_POST['dossierMesDocs']); }
-	else { $dossierMesDocs = "Pas de fichiers à sauvegarder - ACCORD CLIENT OK."; }
+	else { $dossierMesDocs = "Pas de dossier à sauvegarder dans \"Mes documents\" & le bureau."; }
 		
 	if ( !empty($_POST['dossiersClt']) )
 	{ $dossiersClt = addslashes($_POST['dossiersClt']); }
-	else { $dossiersClt = "Aucun document ou dossier spécifique à sauvegarder - ACCORD CLIENT OK."; }
+	else { $dossiersClt = "Pas de dossier spécifique à sauvegarder."; }
+	
+	if ( (empty($_POST['dossierMesDocs'])) && (empty($_POST['dossiersClt'])) )
+	{ $dossierMesDocs = "Aucune sauvegarde à effectuer - Accord client OK."; $dossiersClt = ""; }
 	
 	$ajout2	= mysql_query ( "INSERT INTO tpreinterv VALUES ('','$id_client','$dateDepot','$dateRestitution','$materiel','$typeInterv','$observations','$password','$dossierMesDocs','$dossiersClt');" ) or die ( mysql_error() ) ;
 	

@@ -102,7 +102,7 @@ else { // Sinon, on affiche le formulaire en fonction du nom / n° de téléphon
 	<br />
 	
 	<fieldset style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
-		<div class="ligne"> <input type="checkbox" name="dossierMesDocs" value="Dossier Mes documents + Bureau"> Dossier <b>Mes documents</b> + <b>Bureau</b></div>
+		<div class="ligne"> <input type="checkbox" name="dossierMesDocs" value="Dossier Mes documents + Bureau à sauvegarder"> Dossier <b>Mes documents</b> + <b>Bureau</b></div>
 		<div class="ligne"> <b>Dossier(s) spécifique(s) à sauvegarder</b> : <input type="text" name="dossiersClt"></div>
 	</fieldset>
 <input type="hidden" name="verif" value="add-formulaire-client-connu" />
