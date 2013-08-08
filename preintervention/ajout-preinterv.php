@@ -1,4 +1,9 @@
-﻿<?php //Création de la fiche client si les "_POST" ne sont pas vides
+﻿<html>
+
+<head> <link href="../style.css" rel="stylesheet" type="text/css" /> </head>
+
+<body>
+<?php //Création de la fiche client si les "_POST" ne sont pas vides
 include "../admin/id_bdd.php";
 
 if ( (isset($_POST['verif'])) && ($_POST['verif']=='add-formulaire-nouveau-client') && (count($_POST) != 0) )
@@ -70,9 +75,11 @@ else
 		
 		$lastadd = mysql_insert_id(); // Reprise du code de l'intervention pour la redirection
 		
-		echo "<hr /><center><h2> Ajout réussi !</h2><br />
-		Cliquez sur le bouton pour imprimer : <form action='print_preinterv.php' method='post'> <input type='hidden' name='id' value='".$lastadd."'> <input type='submit' value='IMPRIMER' style='width:250px; height:50px;font-size:14px;'></form>
-		</center><hr />";
+		echo "<center><h2>Ajout de la fiche de pré-intervention réussi !</h2><br />
+		Cliquez sur le bouton ci-dessous pour imprimer : <form action='print_preinterv.php' method='post'> <input type='hidden' name='id' value='".$lastadd."'> <br /><br /><button id='bouton'>IMPRIMER</button></form>
+		</center>";
 	}
 }
 ?>
+</body>
+</html>

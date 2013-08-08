@@ -41,39 +41,6 @@
     font-weight:bold;
 }
 
-/* Menu général du site */
-#menu {
-  position: fixed;
-  right: 0;
-  width: 130px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  top: 25%;
-}
-
-#menu li {
-  background: #ccc ;
-  color: #fff ;
-  border: 1px solid #000 ;
-  margin-bottom: 1px ;
-}
-
-#menu li a {
-  display: block ;
-  background: #aaa ;
-  color: #fff ;
-  text-align: center ;
-  text-decoration: none ;
-  padding: 4px 0 ;
-}
-
-#menu li a:hover, #menu li a:focus, #menu li a:active {
-  background: #000 ;
-  text-decoration: underline ;
-}
-
-
 
 
 /* Styles des formulaires */
@@ -81,14 +48,29 @@
 
 /* Cadre = "fieldset" */
 #cadre {
--moz-box-shadow: 5px 5px 5px 0px #c0c0c0;
--webkit-box-shadow: 5px 5px 5px 0px #c0c0c0;
--o-box-shadow: 5px 5px 5px 0px #c0c0c0;
-box-shadow: 5px 5px 5px 0px #c0c0c0;
+-moz-box-shadow: 3px 3px 3px 0px #c0c0c0;
+-webkit-box-shadow: 3px 3px 3px 0px #c0c0c0;
+-o-box-shadow: 3px 3px 3px 0px #c0c0c0;
+box-shadow: 3px 3px 3px 0px #c0c0c0;
 filter:progid:DXImageTransform.Microsoft.Shadow(color=#c0c0c0, Direction=134, Strength=5);
--moz-border-radius: 4px;
--webkit-border-radius: 4px;
-border-radius: 4px;
+
+-webkit-border-top-left-radius: 5px;
+-webkit-border-top-right-radius: 75px;
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-topright: 75px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 5px;
+border-top-left-radius: 5px;
+border-top-right-radius: 75px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 5px;
+
+border:1px solid #516f98;
+-moz-border-radius:8px;
+-webkit-border-radius:8px;	
+border-radius:4px;	
 }
 
 /* Lorsque la souris arrive sur une ligne du formulaire, la ligne est mise en évidence par une couleur bleue */
@@ -96,15 +78,24 @@ form .ligne:hover {
   background: #f1f7fa;
 }
 
+/* "Legend" des fieldset encadrés */
+legend {
+background: #FFF;
+border:1px solid #516f98;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+padding: 3px;
+}
+
 /* Bouton d'action des formulaires */
 #bouton {
 width:250px; height:50px; font-size:14px;
-margin:auto;
 color:#ffffff;
--moz-box-shadow: 0px 0px 45px #343434;
--webkit-box-shadow: 0px 0px 45px #343434;
--o-box-shadow: 0px 0px 45px #343434;
-box-shadow: 0px 0px 45px #343434;
+-moz-box-shadow: 0px 0px 30px #343434;
+-webkit-box-shadow: 0px 0px 30px #343434;
+-o-box-shadow: 0px 0px 30px #343434;
+box-shadow: 0px 0px 30px #343434;
 -moz-border-radius: 5px;
 -webkit-border-radius: 5px;
 border-radius: 5px;
@@ -120,7 +111,6 @@ background: radial-gradient(#3166ff, #3531ff);
 
 #bouton:hover {
 width:250px; height:50px; font-size:14px;
-margin:auto;
 color:#ffffff;
 -moz-box-shadow: 0px 0px 10px #343434;
 -webkit-box-shadow: 0px 0px 10px #343434;

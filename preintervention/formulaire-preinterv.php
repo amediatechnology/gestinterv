@@ -5,7 +5,7 @@ if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysq
 <form action="preintervention/ajout-preinterv.php" method="POST">
 
 <fieldset id="cadre" style="width:600px; text-align:justify;"><legend><h3>Coordonnés client</h3></legend>
-	<div class="ligne"> <b>NOM</b> : <input required name="nom" type="text" required value="<?php if (isset($nom_client)) { echo $nom_client; } else if (isset($ligne)) { echo $ligne['nom']; } ?>" /> - PRÉNOM : <input name="prenom" type="text" value="<?php if (isset($prenom_client)) { echo $prenom_client; } else if (isset($ligne)) { echo $ligne['prenom']; }?>" /><br /> </div>	
+	<div class="ligne"> <b>NOM</b> : <input type="text" name="nom" value="<?php if (isset($nom_client)) { echo $nom_client; } else if (isset($ligne)) { echo $ligne['nom']; } ?>" /> - PRÉNOM : <input name="prenom" type="text" value="<?php if (isset($prenom_client)) { echo $prenom_client; } else if (isset($ligne)) { echo $ligne['prenom']; }?>" /><br /> </div>	
 	<div class="ligne"> <b>Tél fixe</b> : <input required type="text" name="telFixe" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telFixe']; } ?>" /> - Tél portable : <input type="text" name="telPort" value="<?php if (isset($tel_client)) { echo $tel_client; } else if (isset($ligne)) { echo $ligne['telPort']; } ?>" /><br />	</div>
 	<div class="ligne"> Adresse : <input type="text" name="adresse" size="55" value="<?php if (isset($ligne)) { echo $ligne['adresse']; } ?>" /> </div>
 </fieldset>
@@ -48,7 +48,7 @@ if ( (empty($_POST)) or (isset($_GET)) && (($_GET['p'])=="ficheclient") or (mysq
 	
 	<br />
 	
-	<fieldset id="cadre" style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
+	<fieldset style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
 		<div class="ligne"> <input type="checkbox" name="dossierMesDocs" value="Dossier Mes documents + Bureau"> Dossier <b>Mes documents</b> + <b>Bureau</b></div>
 		<div class="ligne"><b>Dossier(s) spécifique(s) à sauvegarder</b> : <input type="text" name="dossiersClt"></div>
 	</fieldset>
@@ -68,7 +68,7 @@ else { // Sinon, on affiche le formulaire en fonction du nom / n° de téléphon
 <form action="preintervention/ajout-preinterv.php" method="POST">
 
 <fieldset id="cadre" style="width:600px; text-align:justify;"><legend><h3>Coordonnés client</h3></legend>
-	<div class="ligne"> <b>NOM</b> : <input name="nom" type="text" value="<?php echo $ligne['nom']; ?>" required readonly /></div>
+	<div class="ligne"> <b>NOM</b> : <input type="text" name="nom" value="<?php echo $ligne['nom']; ?>" required readonly /></div>
 	<div class="ligne"> <b>Tél fixe</b> : <input type="text" name="telFixe" value="<?php echo $ligne['telFixe']; ?>" /> - Tél portable : <input type="text" name="telPort" value="<?php echo $ligne['telPort']; ?>" /></div>
 	<div class="ligne"> Adresse : <input type="text" name="adresse" size="55" value="<?php echo $ligne['adresse']; ?>" /></div>
 </fieldset>
@@ -101,7 +101,7 @@ else { // Sinon, on affiche le formulaire en fonction du nom / n° de téléphon
 	
 	<br />
 	
-	<fieldset id="cadre" style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
+	<fieldset style="text-align:justify;"><legend><h3>Fichiers à sauvegarder</h3></legend>
 		<div class="ligne"> <input type="checkbox" name="dossierMesDocs" value="Dossier Mes documents + Bureau"> Dossier <b>Mes documents</b> + <b>Bureau</b></div>
 		<div class="ligne"> <b>Dossier(s) spécifique(s) à sauvegarder</b> : <input type="text" name="dossiersClt"></div>
 	</fieldset>
